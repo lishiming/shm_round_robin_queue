@@ -26,13 +26,7 @@
 #define SHM_FALSE -1
 #endif
 
-/*
-	***************************************************************
-		i will change block_info_t*  to  void*
 
-		i use this block_info_t * because this interface is only inner interface.
-  	***************************************************************
-  */
 /**
  * 
  * STRUCT NAME: block_info_t
@@ -68,6 +62,8 @@ typedef struct _block_info
  * 	   tail, the distance between the newest data in the queue and pbase
  * 	   pbase,the start of the circular_array
  * 	   
+ * 	i will change block_info_t*  to  void*,i use this block_info_t * because this interface is 
+ * 	only inner interface. but I known this isn't beautiful.
  */
  
 typedef struct _circular_array
@@ -81,18 +77,62 @@ typedef struct _circular_array
 }circular_array_t;
 
 
+/**
+ * 
+ * METHOD: init_queue
+ * DESCRIPTION: init the info of queue  
+ * @param :pqueue, the addrss of array
+ * @param :pbase, the first block should be located here
+ * @return :SHM_TRUE,success，if fail，SHM_FALSE
+ */
+ 
 int init_queue(circular_array_t *pqueue, block_info_t *pbase);
 
 
+/**
+ * 
+ * METHOD: en_queue
+ * DESCRIPTION: insert a block to the queue  to the tail
+ * @param :pqueue, the addrss of array
+ * @param :value, the block's info
+ * @param :queue_size,the size of the queue
+ * @return :SHM_TRUE,success，if fail，SHM_FALSE
+ */
+ 
 int en_queue(circular_array_t *pqueue, block_info_t *value,  unsigned int queue_size);
 
 
+/**
+ * 
+ * METHOD: out_queue
+ * DESCRIPTION:  the head dequeue
+ * @param :pqueue, the addrss of array
+ * @param :queue_size,the size of the queue
+ * @return :SHM_TRUE,success，if fail，SHM_FALSE
+ */
+ 
 int out_queue(circular_array_t *pqueue, unsigned int queue_size);
 
 
+/**
+ * 
+ * METHOD: is_full
+ * DESCRIPTION:  jude if the queue is full
+ * @param :pqueue, the addrss of array
+ * @param :queue_size,the size of the queue
+ * @return :SHM_TRUE,if queue is full，if not，SHM_FALSE
+ */
+ 
 int is_full(circular_array_t *pqueue, unsigned int queue_size);
 
 
+/**
+ * 
+ * METHOD: is_empty
+ * DESCRIPTION:  jude if the queue is empty
+ * @param :pqueue, the addrss of array
+ * @return :SHM_TRUE,if queue is empty，if not，SHM_FALSE
+ */
 int is_empty(circular_array_t *pqueue);
 
 #endif
