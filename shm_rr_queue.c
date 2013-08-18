@@ -1,4 +1,3 @@
-
 #include "shm_core.h"
 #include "shm_rr_queue.h"
 #include "shm_circular_array.h"
@@ -126,7 +125,7 @@ int open_shm_queue(void*handle, key_t key_id)
 			{
 				return SHM_NO_SHM;
 			}
-			//printf("sh_mem:%x no=%d\n",sh_mem, errno);
+			
 			init_read_handle_info(shmq_handle,key_id, sh_mem);
 		}
 	}
@@ -336,7 +335,7 @@ int close_shm_queue(void*handle)
 	{
 		sleep(5);
 		/*
-			give 5 min is enough
+			give 5 sec is enough
 		*/
 	}
 
