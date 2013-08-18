@@ -1,3 +1,11 @@
+/*##################################################################################*//*
+
+ *#  @FILE: shm_circular_array.h
+ *#  DESCRIPTION : 
+      in this file,I use an array to realize a round-robin queue, I don't use the link list
+      because the round-robin queue should exist in the share memory(shm),the shm will
+ *#  Author:lishiming2007@gmail.com
+*####################################################################################*/
 #ifndef	__H_SHM_CIRCULAR_ARRAY_HEADER
 #define	__H_SHM_CIRCULAR_ARRAY_HEADER
 
@@ -48,7 +56,7 @@ typedef struct _circular_array
 }circular_array_t;
 
 
-int  init_queue(circular_array_t *pqueue, block_info_t *pbase);
+int init_queue(circular_array_t *pqueue, block_info_t *pbase);
 
 
 int en_queue(circular_array_t *pqueue, block_info_t *value,  unsigned int queue_size);
