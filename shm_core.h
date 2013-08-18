@@ -73,7 +73,7 @@ typedef struct _shm_queue_info
 	unsigned int pool_left_size; /* size of the memory pool can be used*/
     	unsigned int pool_begin_offset; /* the offset of the memory pool's start to the start of the whole share memory*/
     	unsigned int pool_end_offset; /*the offset of the memory pool's end to the start of the whole share memory*/
-    	unsigned int write_pos; /* the offset of the next write position to the start of the whole share*/
+    	unsigned int write_pos; /* the offset of the next write position to the start of the whole share memory*/
 	unsigned int owner_id; /* which process create the share memory(not pid)*/
 	unsigned int op_num; /* the num of processes who attached to the share memory*/
 	char read_flags[MAX_PROC_NUM]; /* this array marks which reader is reading share memory*/
