@@ -3,9 +3,13 @@
  *#  @FILE: shm_circular_array.h
  *#  DESCRIPTION : 
       in this file,I use an array to realize a round-robin queue, I don't use the link list
-      because the round-robin queue should exist in the share memory(shm),the shm will
+      because the round-robin queue should exist in the share memory(shm),the shm will be 
+      getted in init,if each time get a new shm for a new block,a lot of system calls will
+      happen,so I use a given shm to realize a queue.
  *#  Author:lishiming2007@gmail.com
 *####################################################################################*/
+
+
 #ifndef	__H_SHM_CIRCULAR_ARRAY_HEADER
 #define	__H_SHM_CIRCULAR_ARRAY_HEADER
 
@@ -29,7 +33,17 @@
 		i use this block_info_t * because this interface is only inner interface.
   	***************************************************************
   */
-
+/**
+ * 
+ * STRUCT NAME: block_info_t
+ * DESCRIPTION: it contains the info of each data block 
+ * @param :block_size,the size of this data block
+ * 	   block_start,the distance of the data block'start and the start of shm
+ * 	   block_end, the distance of the data block'end and the begin of shm
+ * 	   is_splits, a data block may locate in both the end and the start of the shm,if this happens,this param
+ * 			will be IS_SPLITS,contrary IS_NOT_SPLITS
+ * 	   flags，this array marks if this data block is readed by the process
+ */
 typedef struct _block_info
 {
 	unsigned int	block_size;
@@ -45,6 +59,17 @@ typedef struct _block_info
 }block_info_t;
 
 
+
+/**
+ * 
+ * STRUCT NAME: circular_array_t
+ * DESCRIPTION: info of the  circular_array
+ * @param :head, the distance between the oldest data in the queue and pbase
+ * 	   tail, the distance between the newest data in the queue and pbase
+ * 	   pbase,the start of the circular_array
+ * 	   
+ */
+ 
 typedef struct _circular_array
 {
 	int	head;
