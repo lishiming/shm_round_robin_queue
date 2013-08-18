@@ -1,4 +1,4 @@
-#include "shm_inner_fuc.h"
+#include "shm_inner_func.h"
 #include <string.h>
 
 int init_read_handle_info(shm_queue_handle_t *handle,key_t key_id , char *sh_mem)
