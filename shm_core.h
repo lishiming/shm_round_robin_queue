@@ -4,7 +4,7 @@
 #include <pthread.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
-#include "circular_array.h"
+#include "shm_circular_array.h"
 
 
 #define MAX_PROC_NUM 32
