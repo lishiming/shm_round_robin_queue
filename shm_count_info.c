@@ -16,7 +16,7 @@ unsigned long long  get_op_total(void*handle)
 
 
 
-int  get_miss_stat(void*handle, int id, unsigned long long *miss_block, unsigned long long *miss_betys)
+int  get_miss_stat(void*handle, int id, unsigned long long *miss_block, unsigned long long *miss_bytes)
 {
 	shm_queue_handle_t *shmq_handle = (shm_queue_handle_t*)handle;
 	
