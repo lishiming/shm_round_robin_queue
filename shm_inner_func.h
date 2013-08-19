@@ -3,6 +3,16 @@
 
 #include "shm_core.h"
 
+
+/**
+ * 
+ * METHOD: init_read_handle_info
+ * DESCRIPTION: init read process's handle
+ * @param :key_id,shared memory's key_id
+ * @param :sh_mem,the address of shared memory
+ * @return :SHM_TRUE if this id has been authorized,if not,SHM_FALSE is returned
+ */
+ 
 int init_read_handle_info(shm_queue_handle_t *handle,key_t key_id , char* sh_mem);
 
 int init_write_handle_info(shm_queue_handle_t *handle, key_t key_id, char *sh_mem);
