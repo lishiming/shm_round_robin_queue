@@ -37,7 +37,7 @@
 #define SHMQ_PARAMETER_POOL_SIZE	0x01 /* type to set shm's size*/
 #define SHMQ_PARAMETER_BLOCK_NUM	0x02 /* type to set the num of queue'elements*/
 #define SHMQ_PARAMETER_OP_MODE		0x03 /* type to set op mod*/
-#define SHMQ_PARAMETER_WHO_PRIO		0x04 /* type to set read is prio or read is*/
+#define SHMQ_PARAMETER_WHO_PRIO		0x04 /* type to set read is prio or write is*/
 
 
 enum SHM_RETURN_RET{	
