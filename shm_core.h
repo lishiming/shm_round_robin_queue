@@ -47,7 +47,7 @@ enum SHM_RETURN_RET{
 			SHM_UNKNOWN_PRIO, /* error:the value of SHMQ_PARAMETER_WHO_PRIO is wrong*/
 			SHM_NO_AUTHORITY, /* error:the process don't have been authorized*/
 			SHM_UNKNOWN_TYPE, /* error:set a unknown type*/
-			SHM_NO_SHM, /* error:the share memory is not exist*/
+			SHM_NO_SHM, /* error:the shared memory is not exist*/
 			SHM_CREATE_SHMEM_FAIL, /* error: fail to create shared memory*/
 			SHM_ALREADY_EXIST, /* error: the shared memory is exist,can't create it repeatedly*/
 			SHM_NO_DATA, /* error: no data in the shared memory*/
