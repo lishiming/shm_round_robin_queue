@@ -53,8 +53,8 @@ enum SHM_RETURN_RET{
 			SHM_NO_DATA, /* error: no data in the shared memory*/
 			SHM_DATA_READED_YET, /* error: this data block has been read by the same process*/
 			SHM_OUT_QUEUE_FAIL, /* error: fail to dequeue the tail*/
-			SHM_NO_SPACE, /* error: no space left to write data to share memory*/
-			SHM_DELETE_SHM_FAIL, /* error:delete the share memory failed*/
+			SHM_NO_SPACE, /* error: no space left to write data to shared memory*/
+			SHM_DELETE_SHM_FAIL, /* error:delete the shared memory failed*/
 			SHM_FAIL = -1, /* error:the function gets a fail result*/
 			SHM_OK = 1 /* the function success*/
 		  };
@@ -110,9 +110,9 @@ typedef struct _shm_queue_handle_t
 	unsigned int	op_mode; /* read or write*/
 	unsigned int	op_pos; /* offset the process has read or write */
 	unsigned int	who_prior; /*SHMQ_PARAMETER_WHO_PRIO*/
-	unsigned long long	op_total; /* the betys process has read or written*/
+	unsigned long long	op_total; /* the bytes process has read or written*/
 	key_t   key_id; /* key_id is the id of share memory*/
-	int	shm_fd; /* mid of share memory*/
+	int	shm_fd; /* mid of shared memory*/
 	unsigned int	para_queue_size; /* the queue elements' num*/
 	unsigned int	para_pool_size; /* size of pool to store data*/
 	miss_reader_stat_t	readers_miss[MAX_PROC_NUM]; /* if WRITE_PRIO,how many bytes the readers have missed*/	
