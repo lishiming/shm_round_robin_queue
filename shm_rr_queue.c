@@ -9,7 +9,6 @@
 #include <errno.h>
 
 
-
 void *get_shm_queue_handle(int self_id)
 {
 	shm_queue_handle_t *handle = NULL;
@@ -215,6 +214,11 @@ int read_shm_queue(void*handle, char *to_read_buf, int buf_len)
 		return SHM_NO_DATA;
 	}
 	
+	if(to_read_block->block_size > buf_len)
+	{
+		return SHM_BUF_SHORT;
+	}
+	
 	int read_len = read_block(to_read_block,shmq_handle,to_read_buf, buf_len);
 
 	to_read_block->flags[ret] = FLAG_TRUE;
@@ -244,6 +248,11 @@ int write_shm_queue(void* handle, const char* to_write_buf, int buf_len)
 		return SHM_OP_WRONG;
 	}
 
+	if(shmq_handle->pool_size < buf_len)
+	{
+		return SHM_BUF_SHORT;
+	}
+	
 	pthread_rwlock_wrlock(&(shmq_handle->shm_que_info->rwlock));
 	int f_ret;
 	while((f_ret = is_full(shmq_handle->que,shmq_handle->para_queue_size)) > 0 
