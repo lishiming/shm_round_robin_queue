@@ -16,12 +16,12 @@ extern "C"
 
 #ifndef READ_PRIO
 #define READ_PRIO	0x01 /* value of SHMQ_PARAMETER_WHO_PRIO,
-				                this will assure all the data to be read before covered */
+				this will assure all the data to be read before covered */
 #endif
 
 #ifndef WRITE_PRIO
 #define WRITE_PRIO	0x02 /* value of SHMQ_PARAMETER_WHO_PRIO,
-				                  this will assure the write process write as fast as it can,it will not wait for reader*/
+				this will assure the write process write as fast as it can,it will not wait for reader*/
 #endif
 
 #ifndef SHMQ_PARAMETER_POOL_SIZE
