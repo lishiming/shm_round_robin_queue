@@ -55,6 +55,7 @@ enum SHM_RETURN_RET{
 			SHM_OUT_QUEUE_FAIL, /* error: fail to dequeue the tail*/
 			SHM_NO_SPACE, /* error: no space left to write data to shared memory*/
 			SHM_DELETE_SHM_FAIL, /* error:delete the shared memory failed*/
+			SHM_BUF_SHORT,/*error: when read if buf is too short,when write if shm is too short*/
 			SHM_FAIL = -1, /* error:the function gets a fail result*/
 			SHM_OK = 1 /* the function success*/
 		  };
