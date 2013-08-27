@@ -43,8 +43,7 @@ extern "C"
 #ifndef RETURN_RET
 #define RETURN_RET 1
 
-enum SHM_RETURN_RET
-{	
+enum SHM_RETURN_RET{	
 			SHM_HANDLE_NULL = -201, /* error: the handle is null*/
 			SHM_UNKNOWN_OP, /* error: unknown op type*/
 			SHM_OP_WRONG, /* error: op value can't map the op mod*/
@@ -62,7 +61,7 @@ enum SHM_RETURN_RET
 			SHM_BUF_SHORT,/*error: when read if buf is too short,when write if shm is too short*/
 			SHM_FAIL = -1, /* error:the function gets a fail result*/
 			SHM_OK = 1 /* the function success*/
-};
+		    };
 #endif
 
 /**
