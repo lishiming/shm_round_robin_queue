@@ -23,22 +23,42 @@
 #define SHM_NO_SPLITS 0
 #define SHM_SPLITS 1
 
+#ifndef OP_MODE_READ
 #define OP_MODE_READ	0x01 /* value of SHMQ_PARAMETER_OP_MODE,set the op mode read*/
+#endif
 
+#ifndef OP_MODE_WRITE
 #define OP_MODE_WRITE	0x02 /* value of SHMQ_PARAMETER_OP_MODE,set the op mode write*/
+#endif
 
+#ifndef READ_PRIO
 #define READ_PRIO	0x01 /* value of SHMQ_PARAMETER_WHO_PRIO,
 				this will assure all the data to be read before covered */
+#endif
 
+#ifndef WRITE_PRIO
 #define WRITE_PRIO	0x02 /* value of SHMQ_PARAMETER_WHO_PRIO,
 				this will assure the write process write as fast as it can,it will not wait for reader*/
+#endif
 
-
+#ifndef SHMQ_PARAMETER_POOL_SIZE
 #define SHMQ_PARAMETER_POOL_SIZE	0x01 /* type to set shm's size*/
-#define SHMQ_PARAMETER_BLOCK_NUM	0x02 /* type to set the num of queue'elements*/
-#define SHMQ_PARAMETER_OP_MODE		0x03 /* type to set op mod*/
-#define SHMQ_PARAMETER_WHO_PRIO		0x04 /* type to set read is prio or write is*/
+#endif
 
+#ifndef SHMQ_PARAMETER_BLOCK_NUM
+#define SHMQ_PARAMETER_BLOCK_NUM	0x02 /* type to set the num of queue'elements*/
+#endif
+
+#ifndef SHMQ_PARAMETER_OP_MODE
+#define SHMQ_PARAMETER_OP_MODE		0x03 /* type to set op mod*/
+#endif
+
+#ifndef SHMQ_PARAMETER_WHO_PRIO
+#define SHMQ_PARAMETER_WHO_PRIO		0x04 /* type to set read is prio or write is*/
+#endif
+
+#ifndef RETURN_RET
+#define RETURN_RET 1
 
 enum SHM_RETURN_RET{	
 			SHM_HANDLE_NULL = -201, /* error: the handle is null*/
@@ -59,7 +79,7 @@ enum SHM_RETURN_RET{
 			SHM_FAIL = -1, /* error:the function gets a fail result*/
 			SHM_OK = 1 /* the function success*/
 		  };
-
+#endif
 
 /**
  * 
