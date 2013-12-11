@@ -27,7 +27,7 @@ void *get_shm_queue_handle(int self_id)
 
 int set_shm_queue_handle(void *handle, int type, int value)
 {
-	int ret;
+	int ret = SHM_OK;
 	shm_queue_handle_t *shmq_handle = (shm_queue_handle_t*)handle;
 	
 	if(NULL == shmq_handle)
