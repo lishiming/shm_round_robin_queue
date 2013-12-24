@@ -99,7 +99,7 @@ typedef struct _shm_queue_info
 	unsigned int op_num; /* the num of processes who attached to the shared memory*/
 	char read_flags[MAX_PROC_NUM]; /* this array marks which reader is reading shared memory*/
 	pthread_mutex_t mutex; /* mutext protect op_num*/
-    	pthread_rwlock_t rwlock; /* writer should get rwlock when write,reader only get trwlock when he first get head of queue*/
+	pthread_rwlock_t rwlock; /* writer should get rwlock when write,reader only get trwlock when he first get head of queue*/
        
 }shm_queue_info_t;
 
